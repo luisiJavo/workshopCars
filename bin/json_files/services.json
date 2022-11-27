@@ -1,0 +1,77 @@
+{
+	"servicesData" : [
+		{
+			"service": "Ozone Disinfection",
+			"reference": "ozdisi",
+			"price": 17.95
+			
+		},
+		{
+			"service": "Repair Puncture",
+			"reference": "reppunc",
+			"price": 14.10
+		},
+		{
+			"service": "Change Brake Fluid",
+			"reference": "chbrflu",
+			"price": 44.95
+		},
+		{
+			"service": "Change Antifreeze Fluid",
+			"reference": "chantfrflu",
+			"price": 42.95
+		},
+		{
+			"service":"Change Antifreeze Fluid + Radiator Cleaning",
+			"reference": "chantfrflurdcl",
+			"price": 57.95
+		
+		},
+		{
+			"service":"Load of Air-Conditioning",
+			"reference": "loadaircon",
+			"price": 59.95
+		
+		}
+	]
+	
+	"revisionsData": [
+	{
+		"type": "Basic revision",
+		"Liquid_refill": true,
+		"Oil_change": true,
+		"Oil_filter_change": true,
+		"Cabin_filter change": true,
+		"Air_filter_change": false,
+		"Brake_fluid_replacement": false,
+		"Resetting_the_revision_indicator": true,
+		"Oil_included": false,
+		"price": 64.95 
+	},
+	{
+		"type": "Intermediate revision",
+		"Liquid_refill": true,
+		"Oil_change": true,
+		"Oil_filter_change": true,
+		"Cabin_filte_ change": true,
+		"Air_filter_change": true,
+		"Brake_fluid_replacement": false,
+		"Resetting_the_revision_indicator": true,
+		"Oil_included": false,
+		"price": 89.95 
+	},
+	{
+		"type": "Complete revision",
+		"Liquid_refill": true,
+		"Oil_change": true,
+		"Oil_filter_change": true,
+		"Cabin_filte_ change": true,
+		"Air_filter_change": true,
+		"Brake_fluid_replacement": true,
+		"Resetting_the_revision_indicator": true,
+		"Oil_included": false,
+		"price": 124.95 
+	}
+	
+	]
+}

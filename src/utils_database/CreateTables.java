@@ -57,19 +57,10 @@ public class CreateTables {
    }
     
     public void createTableRevisions() {
-    	String sqlQuery = "CREATE TABLE IF NOT EXISTS revisions (id INT NOT NULL AUTO_INCREMENT, type VARCHAR(150), Liquid_refill BOOLEAN, Oil_change BOOLEAN, BOOLEAN, BOOLEAN, BOOLEAN, BOOLEAN,  BOOLEAN, BOOLEAN,price FLOAT(8,2), PRIMARY KEY (id))";
+    	String sqlQuery = "CREATE TABLE IF NOT EXISTS revisions (id INT NOT NULL AUTO_INCREMENT, type VARCHAR(150), Liquid_refill BOOLEAN, Oil_change BOOLEAN, Oil_filter_change BOOLEAN, Cabin_filter_change BOOLEAN, Air_filter_change BOOLEAN, Brake_fluid_replacement BOOLEAN, Resetting_the_revision_indicator BOOLEAN, Oil_included BOOLEAN,price FLOAT(8,2), PRIMARY KEY (id))";
     	
     	this.executeCreateTableQuery(sqlQuery);
-    	"type": "Basic revision",
-		"Liquid_refill": true,
-		"Oil_change": true,
-		"Oil_filter_change": true,
-		"Cabin_filter change": true,
-		"Air_filter_change": false,
-		"Brake_fluid_replacement": false,
-		"Resetting_the_revision_indicator": true,
-		"Oil_included": false,
-		"price": 64.95 
+    	
     }
     
     
@@ -122,7 +113,7 @@ public class CreateTables {
     	this.createTableCustomers();
     	this.createTableVehicles();
     	this.createTableEmployees();
-    	this.createTableOperations();
+    	this.createTableServices();
     	this.createTableSuppliers();
     	this.createTableTires();
     	this.createTableMaterials();

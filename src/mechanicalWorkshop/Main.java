@@ -23,7 +23,7 @@ public class Main {
 			feedBrandsTable.insertIntoTableTires(parseBrandsJSON.readJSONFile("src/json_files/tires.json"));
 		}catch (SQLException e) {
 			// TODO: handle exception
-			System.out.println("cagada");
+			System.out.println("error feeding tables");
 		}
 		
 		}
