@@ -1,0 +1,37 @@
+{
+	"suppliersData" : [
+		{
+			"supplier": "Racing",
+		},
+		{
+			"supplier": "Dunlop",
+		},
+		{
+			"supplier": "Firestone",
+		},
+		{
+			"supplier": "Yokohama",
+		},
+		{
+			"supplier": "Pirelli",
+		},
+		{
+			"supplier": "Michelin",
+		},
+		{
+			"supplier": "Hankook",
+		},
+		{
+			"supplier": "Castrol",
+		},
+		{
+			"supplier": "Shell",
+		},
+		{
+			"supplier": "Valeo",
+		},
+		{
+			"supplier": "Total",
+		}
+	]
+}
