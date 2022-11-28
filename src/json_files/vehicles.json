@@ -1,0 +1,71 @@
+{
+	"vehiclesData" : [
+		{
+			"plate": "2365FRE",
+			"customer" : "Pedro Jhonson",
+			"model": "Fiesta",
+			"brand": "Ford"
+		},
+		{
+			"plate": "0983FTY",
+			"customer" : "Miguel Ruíz",
+			"brand": "Ford",
+			"model": "Mondeo"
+		},
+		{
+			"plate": "5609DLZ",
+			"customer" : "Luis Andreoti",
+			"brand": "Citroën",
+			"model": "C5"
+		},
+		{
+			"plate": "2365FRE",
+			"customer" : "Paul Smith",
+			"brand": "Citroën",
+			"model": "Cactus"
+		},
+		{
+			"plate": "0099KMN",
+			"customer" : "Guillian Smith",
+			"brand": "Skoda",
+			"model": "Kodiaq"
+		},
+		{
+			"plate": "4322HGJ",
+			"customer" : "Mark Jhonson",
+			"model": "Fiesta",
+			"brand": "Ford"
+		},
+		{
+			"plate": "6654KNM",
+			"customer" : "Pedro Jhonson",
+			"model": "Mondeo",
+			"brand": "Ford"
+		},
+		{
+			"plate": "2365FRE",
+			"customer" : "Raul Jhonson",
+			"brand": "Skoda",
+			"model": "Superb"
+		},
+		{
+			"plate": "2311FRT",
+			"customer" : "Carlson Ruíz",
+			"brand": "Skoda",
+			"model": "Kodiaq"
+		},
+		{
+			"plate": "5566DFR",
+			"customer" : "Guillian Smith",
+			"brand": "Skoda",
+			"model": "Kamiq"
+		},
+		{
+			"plate": "9876LZR",
+			"customer" : "Pedro Jhonson",
+			"brand": "Ferrari",
+			"model": "812"
+		},
+	]
+}
+

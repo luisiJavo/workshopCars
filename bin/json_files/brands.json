@@ -1,0 +1,88 @@
+{
+	"brands_ModelsData" : [
+		{
+			"brand": "Ford",
+			"model": "Fiesta"
+		},
+		{
+			"brand": "Ford",
+			"model": "Focus"
+		},
+		{
+			"brand": "Ford",
+			"model": "Mondeo"
+		},
+		{
+			"brand": "Ford",
+			"model": "Kugar"
+		},
+		{
+			"brand": "Citroën",
+			"model": "C3"
+		},
+		{
+			"brand": "Citroën",
+			"model": "C4"
+		},
+		{
+			"brand": "Citroën",
+			"model": "C5"
+		},
+		{
+			"brand": "Citroën",
+			"model": "Cactus"
+		},
+		{
+			"brand": "Renault",
+			"model": "Scenic"
+		},
+		{
+			"brand": "Renault",
+			"model": "Captur"
+		},
+		{
+			"brand": "Renault",
+			"model": "Megane"
+		},
+		{
+			"brand": "Skoda",
+			"model": "Fabia"
+		},
+		{
+			"brand": "Skoda",
+			"model": "Superb"
+		},
+		{
+			"brand": "Skoda",
+			"model": "Kodiaq"
+		},
+		{
+			"brand": "Skoda",
+			"model": "Kamiq"
+		},
+		{
+			"brand": "Ferrari",
+			"model": "812"
+		},
+		{
+			"brand": "Ferrari",
+			"model": "F40"
+		},
+		{
+			"brand": "Lamborghini",
+			"model": "350GT"
+		},
+		{
+			"brand": "Lamborghini",
+			"model": "Diablo"
+		},
+		{
+			"brand": "Subaru",
+			"model": "Impreza"
+		},
+		{
+			"brand": "Subaru",
+			"model": "Outback"
+		},
+	]
+}
