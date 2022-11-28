@@ -1,0 +1,76 @@
+{
+	"customersData" : [
+		{
+			"name" : "Pedro",
+			"last_name" : "Jhonson",
+			"address" : "C/ Downton street, 34 , 1ºB London ",
+			"telephone" : "654987321",
+			"email" : "Pedro.Jhonson@gmail.com",
+			"debt" : false
+		},
+		{
+			"name" : "Miguel",
+			"last_name" : "Ruíz",
+			"address" : "C/ Desengaño, 42, 3ºA Madrid ",
+			"telephone" : "654987612",
+			"email" : "Miguel.Ruíz@gmail.com",
+			"debt" : false
+		},
+		{
+			"name" : "Luis",
+			"last_name" : "Andreoti",
+			"address" : " c/ Mandil, 78, 9ºC Roma",
+			"telephone" : "654987656",
+			"email" : "Luis.Andreoti@gmail.com",
+			"debt" : false
+		},
+		{
+			"name" : "Paul",
+			"last_name" : "Smith",
+			"address" : "C/ Squared circle, 23, 1ºA Roma",
+			"telephone" : "654987654",
+			"email" : "Paul.Smith@gmail.com",
+			"debt" : false
+		},
+		{
+			"name" : "Guillian",
+			"last_name" : "Smith",
+			"address" : "C/ Atchung , 91, 3ºB Berlín",
+			"telephone" : "654987654",
+			"email" : "Guillian.Smith@gmail.com",
+			"debt" : false
+		},
+		{
+			"name" : "Mark",
+			"last_name" : "Jhonson",
+			"address" : "C/ Hagen , 41, 2ºA Berlín",
+			"telephone" : "654102938",
+			"email" : "Mark.Jhonson@gmail.com",
+			"debt" : false
+		},
+		{
+			"name" : "Gioco",
+			"last_name" : "Tutti",
+			"address" : "C/ Papa de Roma 77, 1ºC Roma",
+			"telephone" : "654980009",
+			"email" : "Gioco.Tutti@gmail.com",
+			"debt" : false
+		},
+		{
+			"name" : "Raul",
+			"last_name" : "Jhonson",
+			"address" : "C/ Westinger, 90 , 2ºB London ",
+			"telephone" : "654980001",
+			"email" : "Raul.Jhonson@gmail.com",
+			"debt" : false
+		},
+		{
+			"name" : "Miguel",
+			"last_name" : "Ruíz",
+			"address" : "C/ Desengaño, 42, 3ºA Madrid ",
+			"telephone" : "654987612",
+			"email" : "Miguel.Ruíz@gmail.com",
+			"debt" : false
+		}
+	]
+}

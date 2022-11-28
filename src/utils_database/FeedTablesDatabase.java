@@ -352,5 +352,49 @@ public class FeedTablesDatabase {
 					conn.close();
 				}
 	}
+		    
+	// table customers
+		    public void insertIntoTableCustomers(JSONObject jsonObj) throws SQLException {
+		    	ArrayList<String> brandsUniqueArrayList = new ArrayList<String>();
+		    	JSONArray jsonArray = jsonObj.getJSONArray("customersData");
+		    	
+		    	for (int i=0;i<jsonArray.length();i++){
+		    		String name = jsonArray.getJSONObject(i).getString("name");
+		    		String last_name = jsonArray.getJSONObject(i).getString("last_name");
+		    		String address = jsonArray.getJSONObject(i).getString("address");
+		    		String telephone = jsonArray.getJSONObject(i).getString("telephone");
+		    		String email = jsonArray.getJSONObject(i).getString("email");
+		    		Boolean debt = jsonArray.getJSONObject(i).getBoolean("debt");
+		    		
+		            System.out.printf("name : %s \n", jsonArray.getJSONObject(i).getString("name"));
+		            
+		        	String sqlQuery = "INSERT INTO customers (name, last_name, address, telephone, email, debt) VALUES(?,?,?,?,?,?)";
+		        	this.executeInsertCustomersTableQuery(sqlQuery, name, last_name, address, telephone, email, debt);
+		        }
+		    	
+		    }
+		 
+		    public void executeInsertCustomersTableQuery(String sqlQuery , String name, String last_name, String address, String telephone, String email, Boolean debt) throws SQLException {
+				ConnectionMysql SQL = new ConnectionMysql();
+		    	Connection conn = SQL.conectMySQL();
+				
+				try {
+		    		PreparedStatement stmt=conn.prepareStatement(sqlQuery);  
+					stmt.setString(1,name);
+					stmt.setString(2,last_name);
+					stmt.setString(3,address);
+					stmt.setString(4,telephone);
+					stmt.setString(5,email);
+					stmt.setBoolean(6,debt);
+					  
+					int i=stmt.executeUpdate();  
+					System.out.println(i+" records inserted");  
+		        	
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} finally {
+					conn.close();
+				}
+	}
     
 }

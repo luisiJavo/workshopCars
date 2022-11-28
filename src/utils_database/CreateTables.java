@@ -25,7 +25,7 @@ public class CreateTables {
 	
     public void createTableCustomers() {
     	String sqlQuery = "CREATE TABLE IF NOT EXISTS customers (id INT NOT NULL AUTO_INCREMENT, name VARCHAR(100)," + 
-    			"last_name VARCHAR(100), address VARCHAR(255), telephone VARCHAR(50), email VARCHAR(200), PRIMARY KEY (id))";
+    			"last_name VARCHAR(100), address VARCHAR(255), telephone VARCHAR(50), email VARCHAR(200), debt BOOLEAN, PRIMARY KEY (id))";
     	
     	this.executeCreateTableQuery(sqlQuery);
     }
