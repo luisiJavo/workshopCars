@@ -19,7 +19,7 @@
 		{
 			"name" : "Luis",
 			"last_name" : "Andreoti",
-			"address" : " c/ Mandil, 78, 9ºC Roma",
+			"address" : "C/ Mandil, 78, 9ºC Roma",
 			"telephone" : "654987656",
 			"email" : "Luis.Andreoti@gmail.com",
 			"debt" : false
@@ -65,12 +65,12 @@
 			"debt" : false
 		},
 		{
-			"name" : "Miguel",
+			"name" : "Carlson",
 			"last_name" : "Ruíz",
-			"address" : "C/ Desengaño, 42, 3ºA Madrid ",
-			"telephone" : "654987612",
-			"email" : "Miguel.Ruíz@gmail.com",
-			"debt" : false
+			"address" : "C/ Merengue, 33, 5ºA Madrid ",
+			"telephone" : "654982846",
+			"email" : "Carlson.Ruíz@gmail.com",
+			"debt" : true
 		}
 	]
 }

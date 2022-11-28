@@ -32,7 +32,7 @@ public class CreateTables {
     
     public void createTableVehicles() {
     	String sqlQuery = "CREATE TABLE IF NOT EXISTS vehicles (id INT NOT NULL AUTO_INCREMENT, plate VARCHAR(100)," + 
-    			"customer_id INT, brand_id INT, model_id INT, email VARCHAR(200), PRIMARY KEY (id)," + 
+    			"customer_id INT, brand_id INT, model_id INT, PRIMARY KEY (id)," + 
     			" FOREIGN KEY (customer_id) REFERENCES customers(id), FOREIGN KEY (brand_id) REFERENCES brands(id), FOREIGN KEY (model_id) REFERENCES models(id))";
     	
     	this.executeCreateTableQuery(sqlQuery);
@@ -93,17 +93,17 @@ public class CreateTables {
     	this.executeCreateTableQuery(sqlQuery);
     }
     
-    public void createTableEmployees() {
+    /*public void createTableEmployees() {
     	String sqlQuery = "CREATE TABLE IF NOT EXISTS employees (id INT NOT NULL AUTO_INCREMENT, name VARCHAR(100)," + 
     			"last_name VARCHAR(100), address VARCHAR(255), telephone VARCHAR(50), email VARCHAR(200), salary FLOAT(7,2), PRIMARY KEY (id))";
     	
     	this.executeCreateTableQuery(sqlQuery);
-    }
+    }*/
     
-    /*public void createTableHistoricals() {
-    	String sqlQuery = "CREATE TABLE IF NOT EXISTS historicals (id INT NOT NULL AUTO_INCREMENT, material_id INT, material_units INT, operation_id INT, operation_time float(6,2), employee_id INT," + 
-    	" delivery_notes_id INT, date DATETIME, PRIMARY KEY (id), FOREIGN KEY (material_id) REFERENCES materials(id)," + 
-    			" FOREIGN KEY (operation_id) REFERENCES operations(id), FOREIGN KEY (employee_id) REFERENCES employees(id))";
+    public void createTableHistoricals() {
+    	String sqlQuery = "CREATE TABLE IF NOT EXISTS historicals (id INT NOT NULL AUTO_INCREMENT, material_id INT, material_units INT, service_id INT, " + 
+    	"delivery_notes_id INT, date DATETIME, PRIMARY KEY (id), FOREIGN KEY (material_id) REFERENCES materials(id)," + 
+    			" FOREIGN KEY (service_id) REFERENCES services(id))";
     	
     	this.executeCreateTableQuery(sqlQuery);
     }
@@ -113,22 +113,21 @@ public class CreateTables {
     	" vehicle_id INT, customer_id INT, PRIMARY KEY (id), FOREIGN KEY (vehicle_id) REFERENCES vehicles(id), FOREIGN KEY (customer_id) REFERENCES customers(id))";
     	
     	this.executeCreateTableQuery(sqlQuery);
-    }*/
+    }
     
     public void createAllTables() {
     	this.createTableBrands();
     	this.createTableModels();
     	this.createTableCustomers();
     	this.createTableVehicles();
-    	this.createTableEmployees();
     	this.createTableServices();
     	this.createTableRevisions();
     	this.createTableSuppliers();
     	this.createTableTires();
     	this.createTableLubricants();
     	this.createTableMaterials();
-    	// this.createTableDeliveryNotes();
-    	// this.createTableHistoricals();
+    	this.createTableDeliveryNotes();
+    	this.createTableHistoricals();
     }
 
 }

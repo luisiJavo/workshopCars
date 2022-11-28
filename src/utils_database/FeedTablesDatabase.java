@@ -32,7 +32,7 @@ public class FeedTablesDatabase {
 	
     public void insertIntoTableBrands(JSONObject jsonObj) throws SQLException {
     	ArrayList<String> brandsUniqueArrayList = new ArrayList<String>();
-    	JSONArray jsonArray = jsonObj.getJSONArray("vehicleData");
+    	JSONArray jsonArray = jsonObj.getJSONArray("brands_ModelsData");
     	
     	for (int i=0;i<jsonArray.length();i++){
     		String brand = jsonArray.getJSONObject(i).getString("brand");
@@ -86,8 +86,31 @@ public class FeedTablesDatabase {
 		return id;
     }
     
+    public int getCustomerID(String customer) {
+    	ConnectionMysql SQL = new ConnectionMysql();
+    	Connection conn = SQL.conectMySQL();
+    	String sqlQuery = "SELECT id FROM customers WHERE name = ? AND last_name = ?";
+    	int id = 0;
+    	String customer_split[] = customer.split(" ");
+		
+		try {
+			PreparedStatement stmt=conn.prepareStatement(sqlQuery);  
+			stmt.setString(1,customer_split[0]);
+			stmt.setString(2,customer_split[1]);
+			ResultSet resultSet=stmt.executeQuery(); 
+			while (resultSet.next()) {
+	                System.out.print(resultSet.getInt("id") + "\n");
+	                id = resultSet.getInt("id");
+	            }
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return id;
+    }
+    
     public void insertIntoTableModels(JSONObject jsonObj) throws SQLException {
-    	JSONArray jsonArray = jsonObj.getJSONArray("vehicleData");
+    	JSONArray jsonArray = jsonObj.getJSONArray("brands_ModelsData");
     	
     	for (int i=0;i<jsonArray.length();i++){
     		String brand = jsonArray.getJSONObject(i).getString("brand");
@@ -137,7 +160,6 @@ public class FeedTablesDatabase {
     
     // table tires
     public void insertIntoTableTires(JSONObject jsonObj) throws SQLException {
-    	ArrayList<String> brandsUniqueArrayList = new ArrayList<String>();
     	JSONArray jsonArray = jsonObj.getJSONArray("tiresData");
     	
     	for (int i=0;i<jsonArray.length();i++){
@@ -212,11 +234,31 @@ public class FeedTablesDatabase {
 		return id;
     }
     
+    public int getModelID(String model) {
+    	ConnectionMysql SQL = new ConnectionMysql();
+    	Connection conn = SQL.conectMySQL();
+    	String sqlQuery = "SELECT id FROM models WHERE model = ?";
+    	int id = 0;
+		
+		try {
+			PreparedStatement stmt=conn.prepareStatement(sqlQuery);  
+			stmt.setString(1,model);
+			ResultSet resultSet=stmt.executeQuery(); 
+			while (resultSet.next()) {
+	                System.out.print(resultSet.getInt("id") + "\n");
+	                id = resultSet.getInt("id");
+	            }
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return id;
+    }
+    
     // table lubricants
     
  
     public void insertIntoTableLubricants(JSONObject jsonObj) throws SQLException {
-    	ArrayList<String> brandsUniqueArrayList = new ArrayList<String>();
     	JSONArray jsonArray = jsonObj.getJSONArray("lubricantsData");
     	
     	for (int i=0;i<jsonArray.length();i++){
@@ -265,7 +307,6 @@ public class FeedTablesDatabase {
 		
 		// table services
 		public void insertIntoTableServices(JSONObject jsonObj) throws SQLException {
-	    	ArrayList<String> brandsUniqueArrayList = new ArrayList<String>();
 	    	JSONArray jsonArray = jsonObj.getJSONArray("servicesData");
 	    	
 	    	for (int i=0;i<jsonArray.length();i++){
@@ -276,7 +317,7 @@ public class FeedTablesDatabase {
 	            System.out.printf("service : %s \n", jsonArray.getJSONObject(i).getString("service"));
 	            
 	        	String sqlQuery = "INSERT INTO services (service, reference, price) VALUES(?,?,?)";
-	        	this.executeInsertServicesTableQuery(sqlQuery, service, reference, i);
+	        	this.executeInsertServicesTableQuery(sqlQuery, service, reference, price);
 	        }
 	    	
 	    }
@@ -303,7 +344,6 @@ public class FeedTablesDatabase {
 			
 			//table revisions
 			public void insertIntoTableRevisions(JSONObject jsonObj) throws SQLException {
-		    	ArrayList<String> brandsUniqueArrayList = new ArrayList<String>();
 		    	JSONArray jsonArray = jsonObj.getJSONArray("revisionsData");
 		    	
 		    	for (int i=0;i<jsonArray.length();i++){
@@ -321,7 +361,7 @@ public class FeedTablesDatabase {
 		            System.out.printf("type : %s \n", jsonArray.getJSONObject(i).getString("type"));
 		            
 		        	String sqlQuery = "INSERT INTO revisions (type, Liquid_refill, Oil_change, Oil_filter_change, Cabin_filter_change, Air_filter_change, Brake_fluid_replacement, Resetting_the_revision_indicator, Oil_included ,price) VALUES(?,?,?,?,?,?,?,?,?,?)";
-		        	this.executeInsertRevisionsTableQuery(sqlQuery, type, Liquid_refill, Oil_change, Oil_filter_change, Cabin_filter_change, Air_filter_change, Brake_fluid_replacement, Resetting_the_revision_indicator, Oil_included, i);
+		        	this.executeInsertRevisionsTableQuery(sqlQuery, type, Liquid_refill, Oil_change, Oil_filter_change, Cabin_filter_change, Air_filter_change, Brake_fluid_replacement, Resetting_the_revision_indicator, Oil_included, price);
 		        }
 		    	
 		    }
@@ -355,7 +395,6 @@ public class FeedTablesDatabase {
 		    
 	// table customers
 		    public void insertIntoTableCustomers(JSONObject jsonObj) throws SQLException {
-		    	ArrayList<String> brandsUniqueArrayList = new ArrayList<String>();
 		    	JSONArray jsonArray = jsonObj.getJSONArray("customersData");
 		    	
 		    	for (int i=0;i<jsonArray.length();i++){
@@ -396,5 +435,46 @@ public class FeedTablesDatabase {
 					conn.close();
 				}
 	}
-    
+	
+	// table Vehicles vehicles
+		    public void insertIntoTableVehicles(JSONObject jsonObj) throws SQLException {
+		    	JSONArray jsonArray = jsonObj.getJSONArray("vehiclesData");
+		    	
+		    	for (int i=0;i<jsonArray.length();i++){
+		    		String plate = jsonArray.getJSONObject(i).getString("plate");
+		    		String customer = jsonArray.getJSONObject(i).getString("customer");
+		    		String model = jsonArray.getJSONObject(i).getString("model");
+		    		String brand = jsonArray.getJSONObject(i).getString("brand");
+		    		int model_id = this.getModelID(model);
+		    		int brand_id = this.getBrandID(brand);
+		    		int customer_id = this.getCustomerID(customer);
+		    		
+		            System.out.printf("plate : %s \n", jsonArray.getJSONObject(i).getString("plate"));
+		            
+		        	String sqlQuery = "INSERT INTO vehicles (plate, customer_id, brand_id, model_id) VALUES(?,?,?,?)";
+		        	this.executeInsertVehiclesTableQuery(sqlQuery, plate, customer_id, brand_id, model_id);
+		        }
+		    }
+		 
+		    public void executeInsertVehiclesTableQuery(String sqlQuery, String plate, int customer_id, int brand_id, int model_id) throws SQLException {
+				ConnectionMysql SQL = new ConnectionMysql();
+		    	Connection conn = SQL.conectMySQL();
+				
+				try {
+		    		PreparedStatement stmt=conn.prepareStatement(sqlQuery);  
+					stmt.setString(1,plate);
+					stmt.setInt(2,customer_id);
+					stmt.setInt(3,brand_id);
+					stmt.setInt(4,model_id);
+					  
+					int i=stmt.executeUpdate();  
+					System.out.println(i+" records inserted");  
+		        	
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} finally {
+					conn.close();
+				}
+		    }
+			
 }

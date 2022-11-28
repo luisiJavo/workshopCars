@@ -25,6 +25,7 @@ public class Main {
 			feedBrandsTable.insertIntoTableServices(parseBrandsJSON.readJSONFile("src/json_files/services.json"));
 			feedBrandsTable.insertIntoTableRevisions(parseBrandsJSON.readJSONFile("src/json_files/services.json"));
 			feedBrandsTable.insertIntoTableCustomers(parseBrandsJSON.readJSONFile("src/json_files/customers.json"));
+			feedBrandsTable.insertIntoTableVehicles(parseBrandsJSON.readJSONFile("src/json_files/vehicles.json"));
 		}catch (SQLException e) {
 			// TODO: handle exception
 			System.out.println("error feeding tables");
