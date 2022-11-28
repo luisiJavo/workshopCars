@@ -78,6 +78,14 @@ public class CreateTables {
     	
     }
     
+    public void createTableLubricants() {
+    	String sqlQuery = "CREATE TABLE IF NOT EXISTS lubricants (id INT NOT NULL AUTO_INCREMENT, title VARCHAR(120), reference VARCHAR(12), brand VARCHAR(100),EAN VARCHAR(255), normative VARCHAR(250)," + 
+    			"volume INT, price FLOAT(8,2),supplier_id INT, PRIMARY KEY (id), FOREIGN KEY (supplier_id) REFERENCES suppliers(id))";
+    	
+    	this.executeCreateTableQuery(sqlQuery);
+    	
+   }
+    
     public void createTableMaterials() {
     	String sqlQuery = "CREATE TABLE IF NOT EXISTS materials (id INT NOT NULL AUTO_INCREMENT, material VARCHAR(255), price_per_unit FLOAT(8,2)," + 
     	" stock INT, supplier_id INT, PRIMARY KEY (id), FOREIGN KEY (supplier_id) REFERENCES suppliers(id))";
@@ -92,7 +100,7 @@ public class CreateTables {
     	this.executeCreateTableQuery(sqlQuery);
     }
     
-    public void createTableHistoricals() {
+    /*public void createTableHistoricals() {
     	String sqlQuery = "CREATE TABLE IF NOT EXISTS historicals (id INT NOT NULL AUTO_INCREMENT, material_id INT, material_units INT, operation_id INT, operation_time float(6,2), employee_id INT," + 
     	" delivery_notes_id INT, date DATETIME, PRIMARY KEY (id), FOREIGN KEY (material_id) REFERENCES materials(id)," + 
     			" FOREIGN KEY (operation_id) REFERENCES operations(id), FOREIGN KEY (employee_id) REFERENCES employees(id))";
@@ -105,7 +113,7 @@ public class CreateTables {
     	" vehicle_id INT, customer_id INT, PRIMARY KEY (id), FOREIGN KEY (vehicle_id) REFERENCES vehicles(id), FOREIGN KEY (customer_id) REFERENCES customers(id))";
     	
     	this.executeCreateTableQuery(sqlQuery);
-    }
+    }*/
     
     public void createAllTables() {
     	this.createTableBrands();
@@ -116,9 +124,10 @@ public class CreateTables {
     	this.createTableServices();
     	this.createTableSuppliers();
     	this.createTableTires();
+    	this.createTableLubricants();
     	this.createTableMaterials();
-    	this.createTableDeliveryNotes();
-    	this.createTableHistoricals();
+    	// this.createTableDeliveryNotes();
+    	// this.createTableHistoricals();
     }
 
 }

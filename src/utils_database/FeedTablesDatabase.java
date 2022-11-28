@@ -212,4 +212,55 @@ public class FeedTablesDatabase {
 		return id;
     }
     
+    // table lubricants
+    
+ // table tires
+    public void insertIntoTableLubricants(JSONObject jsonObj) throws SQLException {
+    	ArrayList<String> brandsUniqueArrayList = new ArrayList<String>();
+    	JSONArray jsonArray = jsonObj.getJSONArray("lubricantsData");
+    	
+    	for (int i=0;i<jsonArray.length();i++){
+    		String title = jsonArray.getJSONObject(i).getString("title");
+    		String reference = jsonArray.getJSONObject(i).getString("reference");
+    		String brand = jsonArray.getJSONObject(i).getString("brand");
+    		int supplier_id = this.getSupplierID(brand);
+    		String EAN = jsonArray.getJSONObject(i).getString("EAN");
+    		String normative = jsonArray.getJSONObject(i).getString("normative");
+    		
+    		int volume = jsonArray.getJSONObject(i).getInt("volume");
+    		Float price = jsonArray.getJSONObject(i).getFloat("price");
+    		
+            System.out.printf("title : %s \n", jsonArray.getJSONObject(i).getString("title"));
+            
+        	String sqlQuery = "INSERT INTO lubricants (title, reference, brand, EAN, normative, volume, price, supplier_id) VALUES(?,?,?,?,?,?,?,?)";
+        	this.executeInsertLubricantsTableQuery(sqlQuery, title, reference, brand, EAN, normative, volume, price, supplier_id);
+        }
+    	
+    }
+ 
+    public void executeInsertLubricantsTableQuery(String sqlQuery, String title, String reference, String brand, String EAN, String normative,  int volume, float price, int supplier_id) throws SQLException {
+		ConnectionMysql SQL = new ConnectionMysql();
+    	Connection conn = SQL.conectMySQL();
+		
+		try {
+    		PreparedStatement stmt=conn.prepareStatement(sqlQuery);  
+			stmt.setString(1,title);
+			stmt.setString(2,reference);
+			stmt.setString(3,brand);
+			stmt.setString(4,EAN);
+			stmt.setString(5,normative);
+			stmt.setInt(6,volume);
+			stmt.setFloat(7,price);
+			stmt.setInt(8,supplier_id);
+			  
+			int i=stmt.executeUpdate();  
+			System.out.println(i+" records inserted");  
+        	
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			conn.close();
+		}
+	}
+    
 }
