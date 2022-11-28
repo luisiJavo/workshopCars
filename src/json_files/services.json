@@ -33,7 +33,7 @@
 			"price": 59.95
 		
 		}
-	]
+	],
 	
 	"revisionsData": [
 	{
@@ -41,7 +41,7 @@
 		"Liquid_refill": true,
 		"Oil_change": true,
 		"Oil_filter_change": true,
-		"Cabin_filter change": true,
+		"Cabin_filter_change": true,
 		"Air_filter_change": false,
 		"Brake_fluid_replacement": false,
 		"Resetting_the_revision_indicator": true,
@@ -53,7 +53,7 @@
 		"Liquid_refill": true,
 		"Oil_change": true,
 		"Oil_filter_change": true,
-		"Cabin_filte_ change": true,
+		"Cabin_filter_change": true,
 		"Air_filter_change": true,
 		"Brake_fluid_replacement": false,
 		"Resetting_the_revision_indicator": true,
@@ -65,7 +65,7 @@
 		"Liquid_refill": true,
 		"Oil_change": true,
 		"Oil_filter_change": true,
-		"Cabin_filte_ change": true,
+		"Cabin_filter_change": true,
 		"Air_filter_change": true,
 		"Brake_fluid_replacement": true,
 		"Resetting_the_revision_indicator": true,

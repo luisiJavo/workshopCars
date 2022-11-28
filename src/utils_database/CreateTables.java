@@ -122,6 +122,7 @@ public class CreateTables {
     	this.createTableVehicles();
     	this.createTableEmployees();
     	this.createTableServices();
+    	this.createTableRevisions();
     	this.createTableSuppliers();
     	this.createTableTires();
     	this.createTableLubricants();

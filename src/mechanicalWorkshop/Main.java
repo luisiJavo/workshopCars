@@ -22,7 +22,8 @@ public class Main {
 			feedBrandsTable.insertIntoTableSuppliers(parseBrandsJSON.readJSONFile("src/json_files/suppliers.json"));
 			feedBrandsTable.insertIntoTableTires(parseBrandsJSON.readJSONFile("src/json_files/tires.json"));
 			feedBrandsTable.insertIntoTableLubricants(parseBrandsJSON.readJSONFile("src/json_files/lubricants.json"));
-			// feedBrandsTable.insertIntoTableTires(parseBrandsJSON.readJSONFile("src/json_files/tires.json"));
+			feedBrandsTable.insertIntoTableServices(parseBrandsJSON.readJSONFile("src/json_files/services.json"));
+			feedBrandsTable.insertIntoTableRevisions(parseBrandsJSON.readJSONFile("src/json_files/services.json"));
 		}catch (SQLException e) {
 			// TODO: handle exception
 			System.out.println("error feeding tables");

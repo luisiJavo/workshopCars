@@ -214,7 +214,7 @@ public class FeedTablesDatabase {
     
     // table lubricants
     
- // table tires
+ 
     public void insertIntoTableLubricants(JSONObject jsonObj) throws SQLException {
     	ArrayList<String> brandsUniqueArrayList = new ArrayList<String>();
     	JSONArray jsonArray = jsonObj.getJSONArray("lubricantsData");
@@ -261,6 +261,96 @@ public class FeedTablesDatabase {
 		} finally {
 			conn.close();
 		}
+    }
+		
+		// table services
+		public void insertIntoTableServices(JSONObject jsonObj) throws SQLException {
+	    	ArrayList<String> brandsUniqueArrayList = new ArrayList<String>();
+	    	JSONArray jsonArray = jsonObj.getJSONArray("servicesData");
+	    	
+	    	for (int i=0;i<jsonArray.length();i++){
+	    		String service = jsonArray.getJSONObject(i).getString("service");
+	    		String reference = jsonArray.getJSONObject(i).getString("reference");
+	    		Float price = jsonArray.getJSONObject(i).getFloat("price");
+	    		
+	            System.out.printf("service : %s \n", jsonArray.getJSONObject(i).getString("service"));
+	            
+	        	String sqlQuery = "INSERT INTO services (service, reference, price) VALUES(?,?,?)";
+	        	this.executeInsertServicesTableQuery(sqlQuery, service, reference, i);
+	        }
+	    	
+	    }
+	 
+	    public void executeInsertServicesTableQuery(String sqlQuery, String service, String reference, float price) throws SQLException {
+			ConnectionMysql SQL = new ConnectionMysql();
+	    	Connection conn = SQL.conectMySQL();
+			
+			try {
+	    		PreparedStatement stmt=conn.prepareStatement(sqlQuery);  
+				stmt.setString(1,service);
+				stmt.setString(2,reference);
+				stmt.setFloat(3,price);
+				  
+				int i=stmt.executeUpdate();  
+				System.out.println(i+" records inserted");  
+	        	
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				conn.close();
+			}
+	    }
+			
+			//table revisions
+			public void insertIntoTableRevisions(JSONObject jsonObj) throws SQLException {
+		    	ArrayList<String> brandsUniqueArrayList = new ArrayList<String>();
+		    	JSONArray jsonArray = jsonObj.getJSONArray("revisionsData");
+		    	
+		    	for (int i=0;i<jsonArray.length();i++){
+		    		String type = jsonArray.getJSONObject(i).getString("type");
+		    		Boolean Liquid_refill = jsonArray.getJSONObject(i).getBoolean("Liquid_refill");
+		    		Boolean Oil_change = jsonArray.getJSONObject(i).getBoolean("Oil_change");
+		    		Boolean Oil_filter_change = jsonArray.getJSONObject(i).getBoolean("Oil_filter_change");
+		    		Boolean Cabin_filter_change = jsonArray.getJSONObject(i).getBoolean("Cabin_filter_change");
+		    		Boolean Air_filter_change = jsonArray.getJSONObject(i).getBoolean("Air_filter_change");
+		    		Boolean Brake_fluid_replacement = jsonArray.getJSONObject(i).getBoolean("Brake_fluid_replacement");
+		    		Boolean Resetting_the_revision_indicator = jsonArray.getJSONObject(i).getBoolean("Resetting_the_revision_indicator");
+		    		Boolean Oil_included = jsonArray.getJSONObject(i).getBoolean("Oil_included");
+		    		Float price = jsonArray.getJSONObject(i).getFloat("price");
+		    		
+		            System.out.printf("type : %s \n", jsonArray.getJSONObject(i).getString("type"));
+		            
+		        	String sqlQuery = "INSERT INTO revisions (type, Liquid_refill, Oil_change, Oil_filter_change, Cabin_filter_change, Air_filter_change, Brake_fluid_replacement, Resetting_the_revision_indicator, Oil_included ,price) VALUES(?,?,?,?,?,?,?,?,?,?)";
+		        	this.executeInsertRevisionsTableQuery(sqlQuery, type, Liquid_refill, Oil_change, Oil_filter_change, Cabin_filter_change, Air_filter_change, Brake_fluid_replacement, Resetting_the_revision_indicator, Oil_included, i);
+		        }
+		    	
+		    }
+		 
+		    public void executeInsertRevisionsTableQuery(String sqlQuery , String type, Boolean Liquid_refill, Boolean Oil_change, Boolean Oil_filter_change, Boolean Cabin_filter_change, Boolean Air_filter_change, Boolean Brake_fluid_replacement, Boolean Resetting_the_revision_indicator, Boolean Oil_included , float price) throws SQLException {
+				ConnectionMysql SQL = new ConnectionMysql();
+		    	Connection conn = SQL.conectMySQL();
+				
+				try {
+		    		PreparedStatement stmt=conn.prepareStatement(sqlQuery);  
+					stmt.setString(1,type);
+					stmt.setBoolean(2,Liquid_refill);
+					stmt.setBoolean(3,Oil_change);
+					stmt.setBoolean(4,Oil_filter_change);
+					stmt.setBoolean(5,Cabin_filter_change);
+					stmt.setBoolean(6,Air_filter_change);
+					stmt.setBoolean(7,Brake_fluid_replacement);
+					stmt.setBoolean(8,Resetting_the_revision_indicator);
+					stmt.setBoolean(9,Oil_included);
+					stmt.setFloat(10,price);
+					  
+					int i=stmt.executeUpdate();  
+					System.out.println(i+" records inserted");  
+		        	
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} finally {
+					conn.close();
+				}
 	}
     
 }
